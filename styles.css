@@ -1,0 +1,731 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #004d4d, #008080);
+    background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    max-width: 600px;
+    width: 90%;
+    animation: fadeIn 1s ease-out;
+}
+
+.logo {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.pen-animation {
+    display: none; /* Hide the rotating pen animation */
+}
+
+.pen-1, .pen-2 {
+    display: none; /* Hide the individual rotating pens */
+}
+
+@keyframes pen1 { /* Remove this comma */
+    0%, 100% { transform: none; }
+}
+
+@keyframes pen2 { /* Separate keyframe definition */
+    0%, 100% { transform: none; }
+}
+.pen {
+    position: absolute;
+    width: 80px;
+    height: 10px;
+    background: #fff;
+    border-radius: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.pen-1 {
+    animation: pen1 2s infinite;
+}
+
+.pen-2 {
+    animation: pen2 2s infinite;
+}
+
+.coming-soon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+.description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.coming-soon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    text-shadow: 0 0 20px rgba(0, 77, 77, 0.5);
+}
+
+.registration-form {
+    display: flex;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+input[type="email"] {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+button {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    background: #004d4d;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #006666;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+@keyframes pen1 {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    50% { transform: translateX(-50%) rotate(45deg); }
+    100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+@keyframes pen2 {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    50% { transform: translateX(-50%) rotate(-45deg); }
+    100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+@media (max-width: 600px) {
+    .registration-form {
+        flex-direction: column;
+    }
+    
+    .logo {
+        font-size: 3rem;
+    }
+    
+    .coming-soon {
+        font-size: 2rem;
+    }
+}
+
+
+/* Intro Animation Styles */
+.intro-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeOut 0.5s ease-out 4s forwards;
+}
+
+/* Update pen animations to complete faster */
+.pen-hero {
+    left: 20%;
+    top: 45%;
+    transform: rotate(-30deg);
+    animation: heroFlick 2s ease-in-out infinite;
+}
+
+.pen-enemy {
+    right: 20%;
+    top: 55%;
+    transform: rotate(30deg);
+    animation: enemyFlick 2s ease-in-out infinite;
+}
+
+/* Adjust main content timing */
+.container {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out 4.2s forwards;
+}
+
+/* Add wooden table surface */
+.battlefield {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #8b5e3c, #654321);
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Add table surface texture */
+.world-map {
+    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+    opacity: 0.3;
+    transform: none;
+}
+
+/* Update pen styles for more realism */
+.pen-hero, .pen-enemy {
+    width: 160px;
+    height: 12px;
+    position: absolute;
+    transform-origin: center right;
+}
+
+.pen-body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #1a1a1a, #333333);
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.pen-tip {
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 4px;
+    background: #1a1a1a;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+/* Position pens for table-top perspective */
+.pen-hero {
+    left: 20%;
+    top: 45%;
+    transform: rotate(-30deg);
+    animation: heroFlick 3s ease-in-out infinite;
+}
+
+.pen-enemy {
+    right: 20%;
+    top: 55%;
+    transform: rotate(30deg);
+    animation: enemyFlick 3s ease-in-out infinite;
+}
+
+/* Create flicking animations */
+@keyframes heroFlick {
+    0% { transform: rotate(-30deg) translateX(0); }
+    20% { transform: rotate(-45deg) translateX(0); }
+    25% { transform: rotate(-15deg) translateX(0); }
+    30% { transform: rotate(-5deg) translateX(100px); }
+    60% { transform: rotate(-5deg) translateX(300px); }
+    100% { transform: rotate(-30deg) translateX(0); }
+}
+
+@keyframes enemyFlick {
+    0% { transform: rotate(30deg) translateX(0); }
+    20% { transform: rotate(45deg) translateX(0); }
+    25% { transform: rotate(15deg) translateX(0); }
+    30% { transform: rotate(5deg) translateX(-100px); }
+    60% { transform: rotate(5deg) translateX(-300px); }
+    100% { transform: rotate(30deg) translateX(0); }
+}
+
+/* Add finger flicking effect */
+.finger {
+    width: 30px;
+    height: 40px;
+    background: #ffdbac;
+    border-radius: 15px;
+    position: absolute;
+    opacity: 0;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-finger {
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+    animation: heroFingerFlick 3s ease-in-out infinite;
+}
+
+.enemy-finger {
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    animation: enemyFingerFlick 3s ease-in-out infinite;
+}
+
+@keyframes heroFingerFlick {
+    0%, 15%, 35%, 100% { opacity: 0; }
+    20%, 30% { opacity: 1; }
+}
+
+@keyframes enemyFingerFlick {
+    0%, 15%, 35%, 100% { opacity: 0; }
+    20%, 30% { opacity: 1; }
+}
+
+/* Add sliding effect marks */
+.pen-hero::after, .pen-enemy::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    bottom: -5px;
+    left: 0;
+    transform-origin: center right;
+    animation: slideMarks 3s ease-in-out infinite;
+}
+
+@keyframes slideMarks {
+    0%, 25%, 100% { opacity: 0; width: 0; }
+    30%, 60% { opacity: 1; width: 100%; }
+}
+
+.world-map {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/2/2c/WorldMap-A_non-Frame.png') center/contain no-repeat;
+    opacity: 0.2;
+}
+
+.pen-hero, .pen-enemy {
+    position: absolute;
+    width: 120px;
+    height: 20px;
+}
+
+.pen-body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #c0c0c0, #e8e8e8);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
+                inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.pen-body::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, #004d4d, #008080);
+    transform: translateY(-50%);
+}
+
+.pen-tip {
+    position: absolute;
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 6px;
+    background: linear-gradient(90deg, #004d4d, #008080);
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Remove duplicate lightUp and tableReveal keyframes */
+@keyframes lightUp {
+    from { background: #333; box-shadow: none; }
+    to { 
+        background: #fff;
+        box-shadow: 0 0 50px #fff,
+                    0 0 100px rgba(255,255,255,0.8),
+                    0 0 150px rgba(255,255,255,0.6);
+    }
+}
+
+@keyframes tableReveal {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+.pen {
+    position: absolute;
+    width: 80px;
+    height: 12px;
+    background: linear-gradient(90deg, #c0c0c0, #e8e8e8);
+    border-radius: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.pen-tip {
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid #004d4d;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+}
+
+.pen-hero {
+    left: -120px;
+    top: 40%;
+    animation: heroEntry 1s ease-out forwards,
+             heroAttack 2s ease-in-out 2s forwards;
+}
+
+.pen-enemy {
+    right: -120px;
+    top: 60%;
+    animation: enemyEntry 1s ease-out forwards,
+             enemyAttack 2s ease-in-out 2s forwards;
+}
+
+.intro-text {
+    position: absolute;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 20px #004d4d;
+    opacity: 0;
+    animation: textReveal 2s ease-out 4s forwards;
+}
+
+.explosions {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+@keyframes heroEntry {
+    to { transform: translateX(calc(50vw - 200px)); }
+}
+
+@keyframes enemyEntry {
+    to { transform: translateX(calc(-50vw + 200px)); }
+}
+
+@keyframes heroAttack {
+    0% { transform: translateX(calc(50vw - 200px)) rotate(0deg); }
+    50% { transform: translateX(calc(50vw - 100px)) rotate(45deg); }
+    100% { transform: translateX(50vw) rotate(720deg); }
+}
+
+@keyframes enemyAttack {
+    0% { transform: translateX(calc(-50vw + 200px)) rotate(0deg); }
+    50% { transform: translateX(calc(-50vw + 100px)) rotate(-45deg); }
+    100% { transform: translateX(-50vw) rotate(-720deg); }
+}
+
+@keyframes textReveal {
+    0% { opacity: 0; transform: scale(0.5); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; visibility: hidden; }
+}
+
+/* Adjust main content to appear after intro */
+.container {
+    opacity: 0;
+    animation: fadeIn 1s ease-out 6.5s forwards;
+}
+
+/* Dark Room Animation */
+.dark-room {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.bulb {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+}
+
+.wire {
+    width: 2px;
+    height: 150px;
+    background: linear-gradient(to bottom, #444, #222);
+    margin: 0 auto;
+}
+
+.bulb-light {
+    width: 60px;
+    height: 80px;
+    background: #333;
+    border-radius: 40% 40% 60% 60%;
+    position: relative;
+    margin: 0 auto;
+    animation: lightUp 1s ease-in 0.5s forwards;
+}
+
+.bulb-light::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 10px;
+    background: #444;
+    border-radius: 5px 5px 0 0;
+}
+
+.table {
+    width: 50%;
+    height: 300px;
+    background: linear-gradient(45deg, #5c3a28, #8b4513);
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform-origin: center;
+    opacity: 0;
+    animation: 
+        tableReveal3D 1s ease-out 1.5s forwards,
+        cameraShift 1.5s ease-in-out 2.5s forwards;
+    border-radius: 10px;
+    box-shadow: 
+        0 20px 50px rgba(0,0,0,0.5),
+        inset 0 2px 10px rgba(255,255,255,0.1),
+        inset 0 -2px 10px rgba(0,0,0,0.3);
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    background-image: 
+        url('https://www.transparenttextures.com/patterns/wood-pattern.png'),
+        linear-gradient(90deg, rgba(0,0,0,0.1) 0px, transparent 1px) 0 0 / 20px 20px,
+        linear-gradient(rgba(0,0,0,0.2) 1px, transparent 1px) 0 0 / 100% 20px;
+}
+
+.table-leg {
+    position: absolute;
+    width: 30px;
+    height: 200px;
+    background: linear-gradient(45deg, #4a2f1f, #6b3711);
+    transform-origin: top;
+    transform: rotateX(-90deg);
+    border-radius: 5px;
+}
+
+.leg-front-left {
+    left: 40px;
+    bottom: -200px;
+}
+
+.leg-front-right {
+    right: 40px;
+    bottom: -200px;
+}
+
+.leg-back-left {
+    left: 40px;
+    bottom: -200px;
+    transform: rotateX(-90deg) translateZ(-300px);
+}
+
+.leg-back-right {
+    right: 40px;
+    bottom: -200px;
+    transform: rotateX(-90deg) translateZ(-300px);
+}
+
+@keyframes tableReveal3D {
+    0% { 
+        opacity: 0;
+        transform: translate(-50%, -30%) rotateX(60deg) rotateY(-30deg) scale(0.8);
+    }
+    100% { 
+        opacity: 1;
+        transform: translate(-50%, -50%) rotateX(60deg) rotateY(-30deg) scale(1);
+    }
+}
+
+@keyframes cameraShift {
+    0% {
+        transform: translate(-50%, -50%) rotateX(60deg) rotateY(-30deg) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotateX(75deg) rotateY(0deg) scale(1.1);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotateX(25deg) rotateY(0deg) scale(1);
+    }
+}
+
+.dark-room {
+    perspective: 2000px;
+}
+
+.coming-soon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 800;
+    text-shadow: 0 0 20px rgba(0, 77, 77, 0.7);
+}
+
+.description {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: #e6e6e6;
+    text-shadow: 0 0 15px rgba(0, 77, 77, 0.5);
+}
+
+.explosion {
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    left: -100%;
+    top: -100%;
+    background: radial-gradient(circle, 
+        rgba(255,255,255,1) 0%, 
+        rgba(255,220,110,0.8) 20%,
+        rgba(255,170,50,0.6) 40%,
+        rgba(255,100,50,0.4) 60%,
+        transparent 80%);
+    opacity: 0;
+    animation: explode 0.8s ease-out 2s forwards;
+}
+
+@keyframes explode {
+    0% { 
+        opacity: 0; 
+        transform: scale(0.1); 
+    }
+    50% { 
+        opacity: 1; 
+        transform: scale(1.2);
+    }
+    100% { 
+        opacity: 0; 
+        transform: scale(2);
+    }
+}
+
+/* Update main content timing to appear after explosion */
+.container {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out 2.8s forwards;
+}
+
+@keyframes lightUp {
+    from { 
+        background: #333;
+        box-shadow: none;
+    }
+    to { 
+        background: #fff;
+        box-shadow: 
+            0 0 30px #fff,
+            0 0 60px rgba(255,255,255,0.8),
+            0 0 100px rgba(255,255,255,0.6),
+            0 0 0 5px rgba(255,255,255,0.1);
+    }
+}
+
+@keyframes tableReveal {
+    from { 
+        opacity: 0;
+        transform: translate(-50%, -40%) scale(0.8);
+    }
+    to { 
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.explosion {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #fff 0%, transparent 70%);
+    opacity: 0;
+    animation: explode 0.5s ease-out 3s forwards;
+}
+
+@keyframes lightUp {
+    from { background: #333; box-shadow: none; }
+    to { 
+        background: #fff;
+        box-shadow: 0 0 50px #fff,
+                    0 0 100px rgba(255,255,255,0.8),
+                    0 0 150px rgba(255,255,255,0.6);
+    }
+}
+
+@keyframes tableReveal {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+@keyframes explode {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 0; transform: scale(2); }
+}
+
+/* Update main content timing */
+.container {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out 3.5s forwards;
+}

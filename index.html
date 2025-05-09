@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PenFight - Coming Soon</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <audio id="bulbSound" preload="auto">
+        <source src="https://assets.mixkit.co/active_storage/sfx/212/212.wav" type="audio/wav">
+    </audio>
+    <audio id="tableSound" preload="auto">
+        <source src="https://assets.mixkit.co/active_storage/sfx/146/146.wav" type="audio/wav">
+    </audio>
+    <audio id="explosionSound" preload="auto">
+        <source src="https://assets.mixkit.co/active_storage/sfx/235/235.wav" type="audio/wav">
+    </audio>
+    <!-- Replace the blast sound with a more intense explosion sound -->
+    <audio id="blastSound" preload="auto">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2568/2568-large-explosion.wav" type="audio/wav">
+    </audio>
+</head>
+<body>
+    <!-- Intro Animation Section -->
+    <div id="intro" class="intro-animation" style="display: none;">
+        <div class="dark-room">
+            <div class="bulb">
+                <div class="bulb-light"></div>
+                <div class="wire"></div>
+            </div>
+            <div class="table">
+                <div class="pen-hero">
+                    <div class="pen-body"></div>
+                    <div class="pen-tip"></div>
+                </div>
+                <div class="pen-enemy">
+                    <div class="pen-body"></div>
+                    <div class="pen-tip"></div>
+                </div>
+            </div>
+            <div class="explosion"></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="container" style="display: none;">
+        <div class="logo-container">
+            <h1 class="logo">PenFight</h1>
+            <div class="pen-animation">
+                <div class="pen pen-1"></div>
+                <div class="pen pen-2"></div>
+            </div>
+        </div>
+        <div class="content">
+            <h2 class="coming-soon">GAME ON</h2>
+            <div class="description">Global Pen Fight Arena</div>
+            <p class="description">Ready to dominate the table?</p>
+            <form class="registration-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit">Notify Me</button>
+            </form>
+        </div>
+    </div>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
